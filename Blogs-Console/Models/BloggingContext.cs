@@ -19,5 +19,17 @@ namespace BlogsConsole.Models
             this.Posts.Add(post);
             this.SaveChanges();
         }
+        public void DeletePost(Post post)
+        {
+            this.Posts.Remove(post);
+            this.SaveChanges();
+        }
+        public void EditPost(Post UpdatedPost)
+        {
+            Post post = this.Posts.Find(UpdatedPost.PostId);
+            post.Title = UpdatedPost.Title;
+            post.Content = UpdatedPost.Content;
+            this.SaveChanges();
+        }
     }
 }
